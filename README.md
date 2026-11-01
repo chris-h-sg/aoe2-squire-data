@@ -1,0 +1,21 @@
+# aoe2-squire-data
+
+Test data for [aoe2-squire](https://github.com/chris-h-sg/aoe2-squire): screen recordings
+and full frame sets of recorded Age of Empires II: DE games. They are too large for the
+main repository. The main repository keeps each game's replay, telemetry CSV, a few
+fixture frames and the expected results under `test_bench/` (see its `README.md`).
+
+The data lives in **release assets**, not in git: one release per recording batch.
+
+```bash
+gh release download <tag> -R chris-h-sg/aoe2-squire-data
+```
+
+## Releases
+
+| Release | Game | Assets |
+|---|---|---|
+| [`sample-games-2026-11`](https://github.com/chris-h-sg/aoe2-squire-data/releases/tag/sample-games-2026-11) | Game 1 (2026-11-01): live vs AI, Britons, QS Arabia, Normal speed, 1920x1080; `test_bench/game1-castle-vs-ai.*` in aoe2-squire | `telemetry_20261101_110257.mkv` (screen recording, 30 fps H.264, ~18 min), `telemetry_20261101_110257.video.json` (ffmpeg and match start times, to align the video with the CSV), `telemetry_20261101_110257_frames.zip` (all masked resource-panel frames saved by `--record-frames`, with `frames.csv`) |
+
+To find a CSV row or sanity report finding in the video, use `tools/align_video.py` in
+aoe2-squire. Frame file names are the `timestamp_ms` of their CSV row.
